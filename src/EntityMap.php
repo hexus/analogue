@@ -490,7 +490,7 @@ class EntityMap
     public function getProperties(): array
     {
         return get_parent_class(__CLASS__) !== false
-            ? array_unique(array_merge($this->properties, parent::getProperties()))
+            ? array_unique(array_merge($this->properties, (get_parent_class(__CLASS__) . '::getProperties')()))
             : $this->properties;
     }
 
